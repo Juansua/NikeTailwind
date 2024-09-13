@@ -1,5 +1,6 @@
-import Button from "../components"
-import arrowRight from "../assets/icons"
+import { arrowRight } from "../assets/icons"
+import Button from "../components/Button"
+import {statistics} from "../constants/index.js"
 
 const Hero = () => {
   return (
@@ -13,7 +14,17 @@ const Hero = () => {
           Shoes
         </h1>
         <p>This is a plain text because I don't want to use a real one please forgive me thanks to all of you guys.</p>
-        <Button label="Shop Now" iconURL = { arrowRight } />
+        <Button label="Shop Now" iconURL={arrowRight} />
+
+        <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
+          {statistics.map((stat) => (
+            <div key={stat.label}>
+              <p>{stat.value}</p>
+              <p>{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   )
